@@ -28,10 +28,10 @@ export const metadata = {
     images: [{ url: "/assets/golden-retriever.jpg", width: 1200, height: 630, alt: "Golden Retriever" }],
   },
   twitter: { card: "summary_large_image", title: "Dad's Pets", description, images: ["/assets/golden-retriever.jpg"] },
-  robots: { index: Boolean(BUSINESS.websiteUrl), follow: true },
+  robots: { index: BUSINESS.searchIndexingEnabled, follow: true },
 };
 
-const jsonLd = BUSINESS.websiteUrl ? {
+const jsonLd = BUSINESS.searchIndexingEnabled && BUSINESS.websiteUrl ? {
   "@context": "https://schema.org",
   "@type": "PetStore",
   name: BUSINESS.name,
