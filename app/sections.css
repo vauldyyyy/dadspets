@@ -410,7 +410,14 @@
 .beach-loader__track { height: 3px; overflow: hidden; border-radius: 99px; background: rgba(255,247,226,.42); box-shadow: 0 1px 12px rgba(0,0,0,.3); }
 .beach-loader__track span { display: block; height: 100%; border-radius: inherit; background: #f8c987; box-shadow: 0 0 12px #f8c987; transition: width .12s linear; }
 @media (max-aspect-ratio: 4/5) {
-  .beach-loader__video { object-fit: contain; }
-  .beach-loader__shade { background: linear-gradient(180deg, rgba(18,32,52,.5), transparent 24%), linear-gradient(0deg, rgba(20,30,41,.75), transparent 25%); }
+  /* Fill portrait screens and keep the two running dogs as the focal point. */
+  .beach-loader__video { object-fit: cover; animation: beach-loader-mobile-pan 5.75s linear infinite; }
+  .beach-loader__shade { background: linear-gradient(180deg, rgba(18,32,52,.66), transparent 34%), linear-gradient(0deg, rgba(20,30,41,.86), transparent 27%); }
   .beach-loader__tag { max-width: 28ch; line-height: 1.6; letter-spacing: .17em; }
+  .beach-loader__bottom { width: min(440px, calc(100% - 36px)); }
+  .beach-loader__progress-label { gap: 8px; font-size: 9px; letter-spacing: .09em; }
+}
+@keyframes beach-loader-mobile-pan {
+  from { object-position: 40% center; }
+  to { object-position: 31% center; }
 }
