@@ -63,8 +63,12 @@ export default function Contact() {
             <p className="eyebrow eyebrow--gold">Get in touch</p>
             <Words className="display" text="Visit Dad's Pets" as={motion.h1} />
             <p className="content-lede">
-              Explore pets and everyday essentials near Madgaon, Goa. Our exact contact details and hours are being confirmed.
+              Explore pets and everyday essentials near Madgaon, Goa. Call us or send a WhatsApp message and we&apos;ll help you find what you need.
             </p>
+            <div className="contact-quick">
+              <a className="btn btn--grad" href={telHref}>Call {BUSINESS.phoneDisplay}</a>
+              <a className="btn btn--ghost" href={waLink()} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+            </div>
           </Reveal>
         </section>
 
@@ -147,7 +151,7 @@ export default function Contact() {
                 <div className="vd">
                   <span className="vd-k">Call / WhatsApp</span>
                   <span className="vd-v">
-                    {BUSINESS.phoneDisplay ? <a href={telHref}>{BUSINESS.phoneDisplay}</a> : "Number to be confirmed"}
+                    {BUSINESS.phoneDisplay ? <><a href={telHref}>{BUSINESS.phoneDisplay}</a><a className="contact-wa-link" href={waLink()} target="_blank" rel="noopener noreferrer">Chat on WhatsApp →</a></> : "Number to be confirmed"}
                   </span>
                 </div>
               </div>

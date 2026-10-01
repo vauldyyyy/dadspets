@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Contact — Visit Dad's Pets",
   description:
-    "Find Dad's Pets near Madgaon, Goa. See directions and get in touch when contact details are confirmed.",
+    "Visit Dad's Pets near Madgaon, Goa. Call +91 98231 70575 or get in touch on WhatsApp.",
   alternates: { canonical: "/contact" },
 };
 

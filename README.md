@@ -25,7 +25,7 @@ The `/?loader` URL is available to preview the entrance. The old scroll-frame ch
 
 ## Business information
 
-Edit `lib/business.js` when the shop confirms its phone, WhatsApp number, opening hours, social accounts and exact map pin. Until then, those contact routes stay inactive or lead to the contact page. Product and pet imagery is illustrative; availability and prices are not asserted. The current address text is provisional.
+The confirmed phone and WhatsApp number is configured in `lib/business.js`. Update the opening hours, social accounts and exact map pin when the shop confirms them. Product and pet imagery is illustrative; availability and prices are not asserted. The current address text is provisional.
 
 `BUSINESS.websiteUrl` points to the current Vercel URL for canonical metadata and the sitemap. Update it if a custom domain is added. Search indexing remains off until the shop details are confirmed.
 

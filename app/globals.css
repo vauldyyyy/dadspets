@@ -86,7 +86,8 @@ h1, h2, h3, h4, h5 { font-weight: 600; }
   background: linear-gradient(120deg,#f7e3ae 0%,#e7c878 45%,#f2dc9f 70%,#c6a962 100%);
   box-shadow: 0 0 28px rgba(226,199,128,.17), inset 0 1px 1px #fff8d7;
 }
-@media (max-width: 520px) { .nav-cta-arrow { display: none; } .nav-cta--gold { padding: 10px 16px; font-size: 14px; } }
+@media (max-width: 520px) { .nav-cta-arrow { display: none; } .nav-cta--gold { padding: 10px 16px; font-size: 14px; white-space: nowrap; } }
+@media (max-width: 360px) { .nav-inner, .nav-actions { gap: 8px; } .nav-cta--gold { padding: 9px 10px; font-size: 12px; gap: 5px; } .burger { width: 42px; height: 42px; } }
 
 /* ---------- Chapters ---------- */
 .chapter { position: relative; }
@@ -291,6 +292,13 @@ h1, h2, h3, h4, h5 { font-weight: 600; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
 @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
 .cmap { border: 0; width: 100%; min-height: 320px; border-radius: 18px; }
+.contact-quick { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.contact-quick .btn { min-height: 48px; justify-content: center; }
+.contact-wa-link { display: block; margin-top: 8px; font-size: .9rem; font-weight: 600; color: #136b49; }
+@media (max-width: 520px) {
+  .contact-quick { display: grid; grid-template-columns: 1fr; max-width: 340px; margin-inline: auto; }
+  .contact-quick .btn { padding-inline: 18px; }
+}
 
 .site-foot { background: #021b28; color: rgba(247,244,233,.62); padding: 56px clamp(18px,5vw,40px) 30px; border-top: 1px solid rgba(182,236,245,.12); }
 .site-foot a:hover { color: #edcf8e; }
@@ -420,7 +428,7 @@ h1, h2, h3, h4, h5 { font-weight: 600; }
   .sticky-actions a:active { background: rgba(182,236,245,.1); }
   .sticky-actions .sa-wa { background: linear-gradient(120deg, #0e7a5f, #3fa65b); color: #fff; box-shadow: 0 6px 18px rgba(20,120,80,.4); }
   /* The floating bubble would collide with the bar — retire it on phones */
-  .wa-float { display: none; }
+  .wa-float, .sound-toggle { display: none; }
 }
 @media (max-width: 720px) {
   .site-foot { padding-bottom: calc(30px + 64px); }
