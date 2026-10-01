@@ -1,0 +1,166 @@
+/* Dad's Pets storefront direction: warm paper, pine green and coral. */
+:root {
+  --brand-red: #de704e;
+  --brand-red-dk: #b94f35;
+  --brand-blue: #397b6c;
+  --brand-blue-dk: #24594e;
+  --cream: #fff9ef;
+  --cream-2: #f3eadc;
+  --espresso: #283a32;
+  --leaf: #397b6c;
+  --gold: #b85b39;
+  --container: 1320px;
+  --section-y: clamp(76px, 8vw, 120px);
+}
+
+body { background: #173e36; }
+a:focus-visible, button:focus-visible { outline: 3px solid #e67b55; outline-offset: 4px; }
+.scroll-progress { background: linear-gradient(90deg, #e77b58, #efb36e, #4c9480); height: 4px; }
+.nav-inner { max-width: 1460px; }
+.nav-brand { display: flex; flex-direction: column; justify-content: center; }
+.nav-wordmark { font-family: var(--font-inter), sans-serif; font-size: clamp(21px, 2vw, 28px); font-weight: 700; letter-spacing: -.065em; line-height: 1; }
+.nav-wordmark--over { color: #25483e; }
+.nav-brand-tag { display: block; margin-top: 5px; font-size: 9px; font-weight: 700; letter-spacing: .22em; white-space: nowrap; }
+.nav-links { gap: 2px; }
+.nav-links a { font-size: 14px; font-weight: 650; padding: 12px 14px; }
+.nav-cta--gold, .mobile-menu .mobile-menu-cta {
+  color: #fff; border: 1px solid #c75f40; background: #d86e4d;
+  box-shadow: 0 8px 22px rgba(148, 68, 43, .2);
+}
+.nav-cta--gold:hover, .mobile-menu .mobile-menu-cta:hover { background: #bf593b; }
+.mobile-menu { background: rgba(255,249,239,.98); }
+.mobile-menu--dark { background: rgba(26,65,56,.98); }
+.burger { border-radius: 50%; }
+
+/* A storefront opening makes the brand recognizable before the video story. */
+.home-intro {
+  position: relative; overflow: hidden; isolation: isolate; color: #25483e;
+  background: radial-gradient(circle at 94% 9%, #f8d8bf 0, transparent 28%),
+              radial-gradient(circle at 4% 96%, #e2ecda 0, transparent 30%), #fff9ef;
+}
+.home-intro::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: .33; pointer-events: none;
+  background-image: radial-gradient(#d5bda5 1px, transparent 1px); background-size: 26px 26px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 28%, #000 100%); mask-image: linear-gradient(90deg, transparent 28%, #000 100%);
+}
+.home-intro__shell {
+  width: min(calc(100% - 48px), 1360px); min-height: min(840px, 100svh);
+  margin: 0 auto; padding: calc(var(--nav-h) + 48px) 0 70px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .92fr); align-items: center; gap: clamp(28px, 5vw, 86px);
+}
+.home-intro__copy { position: relative; z-index: 2; max-width: 680px; }
+.home-intro__eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 28px; color: #aa5437; font-size: 12px; font-weight: 750; letter-spacing: .17em; }
+.home-intro__eyebrow span { width: 10px; height: 10px; border-radius: 50%; background: #dd7955; box-shadow: 0 0 0 5px #f8e4d2; }
+.home-intro h1 { max-width: 11ch; margin: 0; font-family: var(--font-inter), sans-serif; font-size: clamp(3.3rem, 6.4vw, 6.6rem); font-weight: 750; line-height: .99; letter-spacing: -.075em; text-wrap: balance; }
+.home-intro h1 em { display: block; color: #d86e4d; font-family: var(--font-fraunces), Georgia, serif; font-weight: 500; letter-spacing: -.06em; }
+.home-intro__lede { max-width: 47ch; margin: 32px 0 0; color: #56675b; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.65; }
+.home-intro__actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 36px; }
+.home-intro__actions a { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 13px 20px; font-weight: 700; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+.home-intro__actions a:hover { transform: translateY(-3px); }
+.home-intro__primary { color: white; background: #d86e4d; border-radius: 14px; box-shadow: 0 12px 22px rgba(167,71,41,.19); }
+.home-intro__primary:hover { background: #bf593b; box-shadow: 0 16px 26px rgba(167,71,41,.24); }
+.home-intro__secondary { color: #275849; border: 1px solid #b7cbbb; border-radius: 14px; background: rgba(255,255,255,.64); }
+.home-intro__note { max-width: 43ch; margin-top: 34px; padding-top: 17px; border-top: 1px solid #d8dacc; color: #69786d; font-size: 13px; letter-spacing: .01em; }
+.home-intro__art { position: relative; height: clamp(470px, 44vw, 590px); min-width: 0; }
+.home-intro__shape { position: absolute; border-radius: 44% 56% 57% 43% / 52% 43% 57% 48%; }
+.home-intro__shape--one { inset: 7% 7% 8% 10%; background: #ebdfc8; transform: rotate(-10deg); }
+.home-intro__shape--two { inset: 16% 4% 15% 20%; background: #acc8aa; transform: rotate(14deg); }
+.home-intro__photo { position: absolute; overflow: hidden; margin: 0; border: 7px solid #fffaf2; border-radius: 24px; box-shadow: 0 18px 36px rgba(39,67,47,.18); }
+.home-intro__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.home-intro__photo--dog { left: 7%; top: 0; width: 54%; height: 82%; transform: rotate(-7deg); }
+.home-intro__photo--dog img { object-position: center 27%; }
+.home-intro__photo--cat { right: 1%; top: 8%; width: 43%; height: 50%; transform: rotate(8deg); }
+.home-intro__photo--fish { right: 6%; bottom: 5%; width: 43%; height: 31%; transform: rotate(-5deg); }
+.home-intro__sticker { position: absolute; left: 0; bottom: 4%; width: 132px; height: 132px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; transform: rotate(-11deg); background: #f2bd80; border: 5px solid #fff7e7; box-shadow: 0 13px 26px rgba(56,72,44,.18); text-align: center; font-size: 14px; line-height: 1.22; }
+.home-intro__sticker strong { font-size: 16px; }
+.home-intro__sticker span { font-size: 20px; line-height: 1; }
+.home-intro__paths { display: grid; grid-template-columns: repeat(3, 1fr); background: #214b40; padding: 0 max(24px, calc((100vw - 1360px)/2)); }
+.home-intro__paths a { min-height: 112px; padding: 25px 30px; display: grid; grid-template-columns: 1fr auto; align-content: center; column-gap: 14px; color: #fff9ed; border-left: 1px solid rgba(255,255,255,.18); transition: background .25s ease; }
+.home-intro__paths a:last-child { border-right: 1px solid rgba(255,255,255,.18); }
+.home-intro__paths a:hover { background: #376d58; }
+.home-intro__paths span { grid-column: 1 / -1; margin-bottom: 8px; color: #e6ba88; font-size: 10px; font-weight: 750; letter-spacing: .17em; }
+.home-intro__paths strong { font-size: clamp(16px, 1.65vw, 21px); letter-spacing: -.025em; }
+.home-intro__paths svg { align-self: center; }
+
+/* Boutique typography and a less uniform rhythm through the content. */
+.content h2.display, .gal-title { font-family: var(--font-inter), sans-serif; font-weight: 750; letter-spacing: -.055em; }
+.content h2.display { font-size: clamp(2.3rem, 4.5vw, 4.3rem); }
+.content .eyebrow, .gal-eyebrow { color: #ad5134; }
+.ccard, .founder { border: 1px solid #e4d9ca; border-radius: 28px; background: #fffdf8; box-shadow: 0 18px 40px rgba(76,64,43,.08); }
+.ccard h3, .founder h3 { font-family: var(--font-inter), sans-serif; font-weight: 750; letter-spacing: -.035em; }
+.gal { background: #fff9ef; }
+.gal-head { max-width: 740px; margin-left: 0; text-align: left; }
+.gal-flourish { margin-left: 0; }
+.gal-lede { margin-left: 0; }
+.gal-pill, .gal-cta-btn { background: #d86e4d; color: #fff; border-color: #c55b3d; box-shadow: 0 7px 20px rgba(157,74,45,.2); }
+.gal-chip.is-on { color: #fff; }
+.gal-chip.is-on .gal-count { background: rgba(255,255,255,.22); }
+.gal-cta { background: #e6f0e3; border-color: #c5dac3; }
+.gal-cta-btn { color: #fff; }
+.pet-card { border-radius: 16px; box-shadow: 0 15px 32px rgba(46,56,41,.16); }
+.gal-grid .pet:first-child { grid-column: span 2; }
+.gal-grid .pet:first-child .pet-card { aspect-ratio: 8 / 5; }
+.gal-grid .pet:first-child .pet-info h3 { font-size: clamp(1.45rem, 2.3vw, 2.2rem); }
+.pet-tag { border-radius: 8px; }
+.pet-more a { background: #f5bb81; color: #27483c; }
+
+.service-tiles { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 20px; }
+.service-tiles .ccard { padding: 22px; }
+.service-tiles .ccard:first-child { grid-row: span 2; }
+.service-tiles .ccard:first-child .svc-banner { max-height: 390px; }
+.service-tiles .ccard:not(:first-child) { display: grid; grid-template-columns: 42% minmax(0,1fr); grid-template-rows: auto 1fr; gap: 0 22px; align-content: start; }
+.service-tiles .ccard:not(:first-child) .svc-banner { grid-row: 1 / span 2; height: 100%; min-height: 240px; aspect-ratio: auto; margin: 0; }
+.service-tiles .ccard:not(:first-child) h3, .service-tiles .ccard:not(:first-child) .tick { grid-column: 2; }
+.service-tiles .ccard:not(:first-child) h3 { font-size: clamp(1.15rem, 1.5vw, 1.45rem); }
+.service-tiles .ccard:not(:first-child) .tick { gap: 7px; }
+.service-tiles .ccard:not(:first-child) .tick li { font-size: .9rem; }
+
+.pet-people { padding-block: clamp(86px, 9vw, 138px); }
+.pet-people__layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(36px, 6vw, 100px); align-items: center; }
+.pet-people__story { max-width: 560px; }
+.pet-people__story h2 { color: #25483e; font-family: var(--font-inter), sans-serif; font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 750; line-height: 1.05; letter-spacing: -.065em; text-wrap: balance; }
+.pet-people__story h2 em { color: #bc5a3b; font-family: var(--font-fraunces), Georgia, serif; font-weight: 500; }
+.pet-people__story > p:not(.eyebrow) { max-width: 48ch; margin-top: 22px; color: #566354; font-size: clamp(1rem, 1.25vw, 1.15rem); line-height: 1.7; }
+.pet-people__link { min-height: 48px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; padding: 12px 18px; border-radius: 12px; color: #fff; background: #2d6d5d; font-weight: 700; transition: background .2s, transform .2s; }
+.pet-people__link:hover { background: #205345; transform: translateY(-2px); }
+.pet-people__mosaic { display: grid; grid-template-columns: 1.1fr .9fr; grid-template-rows: repeat(2, minmax(170px, 235px)); gap: 14px; }
+.pet-people__tile { position: relative; overflow: hidden; border: 5px solid #fffaf2; border-radius: 20px; box-shadow: 0 12px 28px rgba(68,69,49,.15); }
+.pet-people__tile--1 { grid-row: span 2; }
+.pet-people__tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pet-people__tile--1 img { object-position: center 35%; }
+.pet-people__tile span { position: absolute; left: 13px; bottom: 13px; padding: 7px 12px; color: #25483e; border-radius: 8px; background: #fffaf2; font-size: 13px; font-weight: 750; }
+
+@media (max-width: 1100px) {
+  .home-intro__shell { grid-template-columns: 1fr .9fr; gap: 16px; }
+  .home-intro h1 { font-size: clamp(3rem, 6vw, 5rem); }
+  .service-tiles { grid-template-columns: 1fr; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .service-tiles .ccard:first-child { grid-row: auto; }
+}
+@media (max-width: 760px) {
+  .home-intro__shell { width: min(calc(100% - 40px), 560px); min-height: 0; padding: calc(var(--nav-h) + 48px) 0 48px; display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
+  .home-intro__copy { max-width: 100%; }
+  .home-intro h1 { font-size: clamp(3.35rem, 10vw, 5.5rem); }
+  .home-intro__lede { margin-top: 23px; }
+  .home-intro__actions { margin-top: 26px; }
+  .home-intro__note { margin-top: 25px; }
+  .home-intro__art { width: min(100%, 490px); height: clamp(340px, 82vw, 460px); margin: 0 auto; }
+  .home-intro__sticker { width: 104px; height: 104px; font-size: 11px; }
+  .home-intro__sticker strong { font-size: 13px; }
+  .home-intro__paths { grid-template-columns: 1fr; padding: 0 20px; }
+  .home-intro__paths a { min-height: 84px; border-left: 0; border-bottom: 1px solid rgba(255,255,255,.16); padding: 18px 4px; }
+  .home-intro__paths a:last-child { border-right: 0; border-bottom: 0; }
+  .service-tiles .ccard:not(:first-child) { display: block; }
+  .service-tiles .ccard:not(:first-child) .svc-banner { height: auto; min-height: 0; aspect-ratio: 16 / 10; margin-bottom: 20px; }
+  .pet-people__layout { grid-template-columns: 1fr; }
+  .pet-people__story { max-width: 640px; }
+}
+@media (max-width: 460px) {
+  .home-intro__eyebrow { font-size: 10px; letter-spacing: .1em; }
+  .home-intro h1 { font-size: clamp(2.8rem, 12.5vw, 3.75rem); }
+  .home-intro__actions a { width: 100%; }
+  .pet-people__mosaic { grid-template-rows: repeat(2, 150px); }
+  .nav-brand-tag { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-intro__actions a, .home-intro__paths a, .pet-people__link { transition: none; }
+}
