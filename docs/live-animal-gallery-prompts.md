@@ -1,0 +1,23 @@
+# Live animal gallery image prompts
+
+These five 3 × 3 image sheets were generated with the built-in image generation tool for the Shop gallery. Every panel is illustrative. The photos do not show current Dad's Pets stock.
+
+## Fish — `public/assets/live/fish-varieties.png`
+
+> Use case: photorealistic-natural. Asset type: square 3-by-3 species photo sheet for a pet shop website gallery. Create exactly nine equal square photographic panels in a clean 3 by 3 grid, with thin neutral gutters and no text, labels, logos, frames, or watermarks. Each panel is a distinct realistic live fish, clearly separated and identifiable: row 1: betta fish, discus fish, fancy goldfish; row 2: koi carp, guppy, freshwater angelfish; row 3: neon tetra school, black molly, dwarf gourami. Natural aquatic surroundings appropriate to each species, authentic anatomy and scales, vibrant but believable colors, high-quality editorial wildlife photography, crisp fish in focus, uncluttered backgrounds. Do not repeat a species, merge fish between panels, or include product packaging.
+
+## Birds — `public/assets/live/bird-varieties.png`
+
+> Use case: photorealistic-natural. Asset type: square 3-by-3 bird species photo sheet for a pet shop website gallery. Create exactly nine equal square photographic panels in a clean 3 by 3 grid, with thin neutral gutters and no text, labels, logos, frames, or watermarks. Each panel shows one distinct realistic bird, clearly separated and identifiable: row 1: blue-and-yellow macaw, green-and-yellow budgerigar, grey cockatiel with yellow crest; row 2: pair of colorful lovebirds, African grey parrot, green cheek conure; row 3: zebra finch, yellow canary, Indian ringneck parakeet. Natural aviary or garden surroundings appropriate to each species, authentic anatomy and plumage, calm alert poses, high-quality editorial wildlife photography, crisp birds in focus, subtle warm Goan light, uncluttered backgrounds. Do not repeat species, merge birds between panels, or include cages or product packaging.
+
+## Poultry — `public/assets/live/poultry-varieties.png`
+
+> Use case: photorealistic-natural. Asset type: square 3-by-3 poultry variety photo sheet for a pet shop website gallery. Create exactly nine equal square photographic panels in a clean 3 by 3 grid, with thin neutral gutters and no text, labels, logos, frames, or watermarks. Each panel shows one distinct realistic poultry type, clearly separated and identifiable: row 1: laying hen, fluffy yellow chicks, adult turkey; row 2: domestic duck, Japanese quail, white goose; row 3: rooster, bantam chicken, guinea fowl. Authentic anatomy, real feathers, healthy calm animals in a tidy warm Goan farm courtyard or grass, gentle natural afternoon light, high-quality editorial farm photography, crisp subject in focus, uncluttered backgrounds. Do not repeat species, merge animals between panels, or include feed bags or people.
+
+## Dogs — `public/assets/live/dog-varieties.png`
+
+> Use case: photorealistic-natural. Asset type: square 3-by-3 dog breed photo sheet for a pet shop website gallery. Create exactly nine equal square photographic panels in a clean 3 by 3 grid, with thin neutral gutters and no text, labels, logos, frames, or watermarks. Each panel shows one distinct realistic healthy dog, clearly separated and identifiable: row 1: Golden Retriever, Labrador Retriever, Beagle; row 2: Pomeranian, Siberian Husky, Cocker Spaniel; row 3: Dalmatian, German Shepherd, Indian Pariah dog (Indie). Natural relaxed poses, one or two dogs maximum per panel, authentic breed anatomy and coat, warm Goan home courtyard or garden backgrounds, high-quality editorial animal photography, crisp subjects in focus, uncluttered backgrounds. Do not repeat breeds or merge dogs between panels.
+
+## Cats — `public/assets/live/cat-varieties.png`
+
+> Use case: photorealistic-natural. Asset type: square 3-by-3 cat variety photo sheet for a pet shop website gallery. Create exactly nine equal square photographic panels in a clean 3 by 3 grid, with thin neutral gutters and no text, labels, logos, frames, or watermarks. Each panel shows one distinct realistic healthy cat, clearly separated and identifiable: row 1: fluffy Persian cat, British Shorthair cat, Maine Coon cat; row 2: Siamese cat, Bengal cat, Ragdoll cat; row 3: Russian Blue cat, Sphynx cat, Indian domestic shorthair tabby cat. Natural relaxed poses, authentic breed anatomy and fur or skin, sunlit Goan home verandah or garden backgrounds, high-quality editorial animal photography, crisp subjects in focus, uncluttered backgrounds. Do not repeat cats or merge animals between panels.

@@ -10,6 +10,7 @@ import WhatsAppFloat from "../../components/WhatsAppFloat";
 import Icon from "../../components/Icon";
 import { ScrollProgress, Words } from "../../components/motionKit";
 import { WholesaleForm, AquariumForm } from "../../components/SupplyForms";
+import LiveAnimalExplorer from "../../components/LiveAnimalExplorer";
 import { CATALOG, SHOP_HINTS, PRODUCT_PHOTOS, PRODUCT_SHEETS, BRANDED_PRODUCTS, MODEL_PRODUCTS } from "../../lib/catalog";
 import { waLink } from "../../lib/business";
 
@@ -140,11 +141,7 @@ export default function Shop() {
           <div className="store-request"><div><p className="supply-kicker">YOUR BRAND, YOUR LIST</p><h3>Looking for something specific?</h3><p>Share a brand, model, size or a photograph. We&apos;ll confirm what can be supplied.</p></div><a className="supply-button supply-button--cream" href={waLink("Hi Dad's Pets! I have a product or brand list I'd like you to check.")} target="_blank" rel="noopener noreferrer">Send your list <Icon name="arrow" size={18} /></a></div>
         </div>
       </section>
-      <section className="store-live" id="live-animals" data-nav="light"><div className="supply-container"><div className="store-section-title"><p className="supply-kicker">THE LIVING SIDE</p><h2>Ask about live availability.</h2><p>Dad&apos;s Pets can confirm what is currently available and the care that goes with it. Pictures are illustrative.</p></div><div className="store-live-grid">
-        <a href={waLink("Hi Dad's Pets! What fish are currently available? Please share photos, prices and care details.")} target="_blank" rel="noopener noreferrer"><img src="/assets/fishes.jpg" alt="Illustrative freshwater fish" loading="lazy" /><div><span>AQUATIC LIFE</span><h3>Fish</h3><p>Freshwater, ornamental and pond enquiries.</p><strong>Enquire on WhatsApp →</strong></div></a>
-        <a href={waLink("Hi Dad's Pets! What pet birds are currently available? Please share photos, prices and care details.")} target="_blank" rel="noopener noreferrer"><img src="/assets/products/aviary.jpg" alt="Illustrative pet birds" loading="lazy" /><div><span>FEATHERS & FLIGHT</span><h3>Birds</h3><p>Pet and exotic bird enquiries, food and habitats.</p><strong>Enquire on WhatsApp →</strong></div></a>
-        <a href={waLink("Hi Dad's Pets! What hens, turkeys or other poultry are currently available? Please share photos, prices and care details.")} target="_blank" rel="noopener noreferrer"><img src="/assets/poultry-supply.webp" alt="Illustrative poultry" loading="lazy" /><div><span>FOR THE FLOCK</span><h3>Poultry</h3><p>Hens, turkeys, feed and practical care.</p><strong>Enquire on WhatsApp →</strong></div></a>
-      </div></div></section>
+      <LiveAnimalExplorer />
 
       <section className="store-special" id="custom-aquariums" data-nav="light"><div className="supply-container store-special__grid"><div className="store-special__intro"><p className="supply-kicker">MADE FOR YOUR SPACE</p><h2>Custom aquariums, from tank to finish.</h2><p>Tell us your size, style and location. Ask about glass tanks, cabinets, filtration, lights, soil, plants and installation together.</p><img src="/assets/products/custom-4ft.jpg" alt="Illustrative custom aquarium" loading="lazy" /></div><AquariumForm /></div></section>
 

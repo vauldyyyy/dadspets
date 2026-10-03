@@ -25,9 +25,11 @@ The `/?loader` URL is available to preview the entrance. The old scroll-frame ch
 
 ## Shop catalog and pictures
 
-`lib/catalog.js` defines seven departments, 76 pictured product types, 57 broader branded enquiries, and 25 named models with matched product photographs. `/shop` presents them in a product-card grid with search, department, brand, filter-type, and aquatic-care filters. Selecting any card opens a prefilled WhatsApp enquiry; there is no online checkout or unconfirmed price. Taiyo appears under fish food, while filter brands appear under equipment. The same Shop page also has live fish, bird and poultry enquiry cards, a custom aquarium brief, and a wholesale list form.
+`lib/catalog.js` defines seven departments, 76 pictured product types, 57 broader branded enquiries, and 25 named models with matched product photographs. `/shop` presents them in a product-card grid with search, department, brand, filter-type, and aquatic-care filters. Selecting any product card opens a prefilled WhatsApp enquiry; there is no online checkout or unconfirmed price. Taiyo appears under fish food, while filter brands appear under equipment. The same Shop page has variety galleries for dogs, cats, fish, birds and poultry: choose an animal category, then choose a variety to enquire on WhatsApp. It also has a custom aquarium brief and a wholesale list form.
 
 The catalog describes enquiry examples, not an exact live inventory. Exact-model reference photographs are in `public/assets/catalog/models/`; their source pages are recorded in `docs/product-photo-sources.json`. Generated, unbranded product illustrations in `public/assets/catalog/` show many broader supply types. Other cards use representative pictures and are marked illustrative. A brand card asks about a manufacturer's range; it does not say Dad's Pets stocks that brand. No price, pack size or animal availability is asserted without confirmation. Obtain permission for third-party reference photographs before using them in a public commercial catalog. Replace them with supplier-authorized images as those become available.
+
+The live-animal gallery images in `public/assets/live/` are generated illustrations arranged as species and breed sheets. They are visual examples, not photos of Dad's Pets' animals or a claim of current availability. The generation prompts and pictured varieties are recorded in `docs/live-animal-gallery-prompts.md`.
 
 ## Business information
 
