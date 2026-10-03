@@ -13,15 +13,12 @@ export default function SiteFooter() {
       <div className="wrap">
         <div>
           <div className="logo">DAD&apos;S PETS</div>
-          <p style={{ maxWidth: 290, marginTop: 10 }}>Pet, aquarium and poultry supplies for homes, shops and farms in Goa.</p>
+          <p style={{ maxWidth: 250, marginTop: 10 }}>A place for pets and the people who love them in Goa.</p>
         </div>
         <div>
           <h5>Explore</h5>
           <Link href="/">Home</Link>
           <Link href="/shop">Shop</Link>
-          <Link href="/custom-aquariums">Custom Aquariums</Link>
-          <Link href="/live-stock">Live Animals</Link>
-          <Link href="/wholesale">Wholesale</Link>
           <Link href="/care-guides">Care Guides</Link>
           <Link href="/contact">Contact</Link>
         </div>

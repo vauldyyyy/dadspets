@@ -6,10 +6,10 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-
 import Icon from "./Icon";
 
 const LINKS = [
+  { href: "/#gallery", label: "Meet the pets" },
+  { href: "/#services", label: "Everyday care" },
+  { href: "/#why", label: "Our story" },
   { href: "/shop", label: "Shop" },
-  { href: "/custom-aquariums", label: "Custom aquariums" },
-  { href: "/live-stock", label: "Live animals" },
-  { href: "/wholesale", label: "Wholesale" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -83,7 +83,7 @@ export default function Nav({ staticLight = false }) {
               animate={{ opacity: light ? 1 : 0 }}
               transition={{ duration: 0.45, ease: EASE }}
             >dad&apos;s pets</motion.span>
-            <small className="nav-brand-tag" style={{ color: ink }}>PET SUPPLY · GOA</small>
+            <small className="nav-brand-tag" style={{ color: ink }}>PET PEOPLE · GOA</small>
           </Link>
 
           <motion.nav
@@ -102,12 +102,12 @@ export default function Nav({ staticLight = false }) {
           <div className="nav-actions">
             <MotionLink
               className="nav-cta nav-cta--gold"
-              href="/wholesale"
+              href="/#visit"
               whileHover={{ y: -2, boxShadow: "0 10px 28px rgba(207,92,58,.28)" }}
               whileTap={{ scale: 0.97 }}
             >
-              <Icon name="arrow" size={18} />
-              Get a quote
+              <Icon name="pin" size={18} />
+              Visit us
               <Icon name="arrow" size={18} className="nav-cta-arrow" />
             </MotionLink>
 
@@ -164,8 +164,8 @@ export default function Nav({ staticLight = false }) {
                 </Link>
               </motion.div>
             ))}
-            <Link className="mobile-menu-cta" href="/wholesale" onClick={() => setOpen(false)}>
-              <Icon name="arrow" size={16} /> Get a quote
+            <Link className="mobile-menu-cta" href="/#visit" onClick={() => setOpen(false)}>
+              <Icon name="pin" size={16} /> Visit us
             </Link>
           </motion.div>
         )}

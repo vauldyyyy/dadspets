@@ -1,3 +1,5 @@
+import "../supply.css";
+
 export const metadata = {
   title: "Shop — Pet, Aquarium & Poultry Supplies",
   description:

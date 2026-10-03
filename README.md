@@ -1,6 +1,6 @@
 # Dad's Pets
 
-A Next.js website for Dad's Pets in Goa. It presents the business as a broad pet and aquarium supplier, with a searchable, pictured catalog, custom aquarium enquiries, live animal enquiries, and wholesale requests. The original Goa beach entrance and the aquarium and courtyard video chapters remain part of the site.
+A Next.js website for Dad's Pets in Goa. The original immersive homepage, Goa beach entrance, aquarium and courtyard video chapters, navigation, and footer are preserved. The Shop page contains the expanded product catalog, brands, live animal enquiries, custom aquarium brief, and wholesale form.
 
 ## Run locally
 
@@ -25,9 +25,9 @@ The `/?loader` URL is available to preview the entrance. The old scroll-frame ch
 
 ## Shop catalog and pictures
 
-`lib/catalog.js` defines seven departments, 76 pictured product types, and 60 branded product or range enquiries spanning 59 brands. `/shop` presents them in a product-card grid with search, department and brand filters. Selecting any card opens a prefilled WhatsApp enquiry; there is no online checkout or unconfirmed price. `/wholesale` has a list-based enquiry form, `/custom-aquariums` has a build brief, and `/live-stock` explains current live animal enquiries.
+`lib/catalog.js` defines seven departments, 76 pictured product types, 57 broader branded enquiries, and 25 named models with matched product photographs. `/shop` presents them in a product-card grid with search, department, brand, filter-type, and aquatic-care filters. Selecting any card opens a prefilled WhatsApp enquiry; there is no online checkout or unconfirmed price. Taiyo appears under fish food, while filter brands appear under equipment. The same Shop page also has live fish, bird and poultry enquiry cards, a custom aquarium brief, and a wholesale list form.
 
-The catalog describes product types and brand enquiries, not an exact live inventory. Generated, unbranded product photographs in `public/assets/catalog/` give many supply types distinct pictures. The remaining product cards use representative photos that may be reused across related types. The site labels images as illustrative. A brand card asks about a manufacturer's range; it does not say Dad's Pets stocks that brand. No price, pack size or animal availability is asserted without confirmation. To show exact product photographs later, add licensed files to `public/assets/products/`, remove the corresponding entry from `PRODUCT_SHEETS`, and change the matching entry in `PRODUCT_PHOTOS` in `lib/catalog.js`.
+The catalog describes enquiry examples, not an exact live inventory. Exact-model reference photographs are in `public/assets/catalog/models/`; their source pages are recorded in `docs/product-photo-sources.json`. Generated, unbranded product illustrations in `public/assets/catalog/` show many broader supply types. Other cards use representative pictures and are marked illustrative. A brand card asks about a manufacturer's range; it does not say Dad's Pets stocks that brand. No price, pack size or animal availability is asserted without confirmation. Obtain permission for third-party reference photographs before using them in a public commercial catalog. Replace them with supplier-authorized images as those become available.
 
 ## Business information
 
