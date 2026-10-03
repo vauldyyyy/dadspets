@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Shop — Pet Essentials",
+  title: "Shop — Pet, Aquarium & Poultry Supplies",
   description:
-    "Browse example categories for pets, food, accessories and care at Dad's Pets near Madgaon, Goa. Ask the shop about current stock.",
+    "Explore aquarium equipment, aquascaping, fish, birds, poultry, pet food and care supplies at Dad's Pets near Madgaon, Goa. Ask about current brands and availability.",
   alternates: { canonical: "/shop" },
 };
 

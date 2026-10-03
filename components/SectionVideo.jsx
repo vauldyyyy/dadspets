@@ -5,7 +5,10 @@ import { useEffect, useRef, useState } from "react";
 /* Section backgrounds whose video is in public/bg/ (<name>.mp4, .webm, .jpg).
    Add a name here once its files exist; until then the section keeps its
    `fallback` background. `mobile` marks names that also have <name>-mobile.mp4. */
-const READY = {};
+const READY = {
+  aquatics: { poster: "aquatics.jpg" },
+  "companions-courtyard": { poster: "companions-video-poster.jpg" },
+};
 
 /**
  * Full-bleed video background for a section. Loads only when the section comes
@@ -83,7 +86,7 @@ export default function SectionVideo({
   return (
     <div ref={wrap} className="sv" aria-hidden="true">
       {posterOnly ? (
-        <img className="sv-media" src={`/bg/${name}.jpg`} alt="" loading="lazy" style={{ objectPosition: position, opacity }} />
+        <img className="sv-media" src={`/bg/${entry.poster || `${name}.jpg`}`} alt="" loading="lazy" style={{ objectPosition: position, opacity }} />
       ) : (
         <video
           ref={video}
@@ -92,7 +95,7 @@ export default function SectionVideo({
           playsInline
           loop={mode === "loop"}
           preload="none"
-          poster={near ? `/bg/${name}.jpg` : undefined}
+          poster={near ? `/bg/${entry.poster || `${name}.jpg`}` : undefined}
           style={{ objectPosition: position, opacity }}
         >
           {entry.mobile && <source src={`/bg/${name}-mobile.mp4`} type="video/mp4" media="(max-aspect-ratio: 3/4)" />}

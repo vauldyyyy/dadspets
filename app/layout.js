@@ -5,29 +5,30 @@ import "./globals.css";
 import "./sections.css";
 import "./ambience.css";
 import "./dads-pets.css";
+import "./supply.css";
 
 const fraunces = Fraunces({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-fraunces", display: "swap" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter", display: "swap" });
 const script = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-script", display: "swap" });
 
 const siteUrl = BUSINESS.websiteUrl || "http://localhost:3000";
-const description = "Explore pets, food, accessories and care inspiration at Dad's Pets near Madgaon, Goa.";
+const description = "Explore aquarium equipment, fish, birds, poultry, pet food and wholesale supplies at Dad's Pets near Madgaon, Goa.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Dad's Pets | Pet Shop near Madgaon, Goa", template: "%s | Dad's Pets" },
+  title: { default: "Dad's Pets | Pet & Aquarium Supplies in Goa", template: "%s | Dad's Pets" },
   description,
-  keywords: ["Dad's Pets", "pet shop Madgaon", "pet shop Shirvodem", "pets Goa", "pet supplies Goa"],
+  keywords: ["Dad's Pets", "pet supplies Goa", "aquarium supplies Goa", "poultry supplies Goa", "wholesale pet supplies Goa"],
   alternates: BUSINESS.websiteUrl ? { canonical: "/" } : undefined,
   openGraph: {
     siteName: BUSINESS.name,
-    title: "Dad's Pets | Pet Shop near Madgaon, Goa",
+    title: "Dad's Pets | Pet & Aquarium Supplies in Goa",
     description,
     type: "website",
     locale: "en_IN",
-    images: [{ url: "/assets/golden-retriever.jpg", width: 1200, height: 630, alt: "Golden Retriever" }],
+    images: [{ url: "/assets/supply-showroom.webp", width: 1200, height: 630, alt: "Illustrative pet and aquarium supply showroom" }],
   },
-  twitter: { card: "summary_large_image", title: "Dad's Pets", description, images: ["/assets/golden-retriever.jpg"] },
+  twitter: { card: "summary_large_image", title: "Dad's Pets", description, images: ["/assets/supply-showroom.webp"] },
   robots: { index: BUSINESS.searchIndexingEnabled, follow: true },
 };
 

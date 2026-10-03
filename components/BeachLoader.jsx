@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const EASE = [0.22, 0.61, 0.36, 1];
 
 /** The beach footage plays once before the home page opens. */
-export default function BeachLoader({ progress = 0, minMs = 5700, demo = false, onFinished }) {
+export default function BeachLoader({ progress = 0, minMs = 5700, demo = false, onFinished, onSkip }) {
   const [shown, setShown] = useState(0);
   const progressRef = useRef(progress);
   progressRef.current = progress;
@@ -47,6 +47,7 @@ export default function BeachLoader({ progress = 0, minMs = 5700, demo = false, 
         aria-hidden="true"
       />
       <div className="beach-loader__shade" aria-hidden="true" />
+      {!demo && onSkip && <button className="beach-loader__skip" type="button" onClick={onSkip}>Skip intro →</button>}
 
       <div className="beach-loader__brand">
         <motion.span

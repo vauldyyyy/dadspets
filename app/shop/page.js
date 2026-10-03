@@ -1,165 +1,103 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import Nav from "../../components/Nav";
-import Reveal from "../../components/Reveal";
 import SiteFooter from "../../components/SiteFooter";
 import WhatsAppFloat from "../../components/WhatsAppFloat";
-import SceneLayers from "../../components/SceneLayers";
-import { ScrollProgress, Words } from "../../components/motionKit";
-import { BUSINESS, waLink } from "../../lib/business";
+import Icon from "../../components/Icon";
+import { CATALOG, SHOP_HINTS, PRODUCT_PHOTOS, PRODUCT_SHEETS, BRANDED_PRODUCTS } from "../../lib/catalog";
+import { waLink } from "../../lib/business";
 
-const waEnquire = (product) => waLink(`Hi Dad's Pets! Do you currently have ${product} or something similar?`);
-
-const GROUPS = [
-  {
-    id: "aquariums",
-    title: "Aquarium Ideas",
-    tone: "content--cream",
-    items: [
-      { name: "Nano Cube Tank", cat: "Aquarium", price: "from ₹3,500", img: "/assets/products/nano-cube.jpg", alt: "Nano cube aquarium with moss and red shrimp" },
-      { name: "2ft Planted Setup", cat: "Aquarium", price: "from ₹8,900", img: "/assets/products/planted-2ft.jpg", alt: "Two-foot planted aquarium on a wooden cabinet" },
-      { name: "4ft Custom Tank", cat: "Custom Build", price: "Quote", img: "/assets/products/custom-4ft.jpg", alt: "Four-foot custom aquarium with blue LED lighting" },
-      { name: "Reef-Ready System", cat: "Marine", price: "Quote", img: "/assets/products/reef-system.jpg", alt: "Reef aquarium with live corals and a clownfish" },
-    ],
-  },
-  {
-    id: "fish",
-    title: "Fishkeeping Ideas",
-    tone: "content--sand",
-    items: [
-      { name: "Fancy Goldfish", cat: "Freshwater", price: "from ₹150", img: "/assets/products/goldfish.jpg", alt: "Fancy goldfish with flowing double tail" },
-      { name: "Betta (Fighter)", cat: "Freshwater", price: "from ₹120", img: "/assets/products/betta.jpg", alt: "Red and blue halfmoon betta with flared fins" },
-      { name: "Discus", cat: "Premium", price: "Quote", img: "/assets/products/discus.jpg", alt: "Three red-turquoise discus fish in a dark aquarium" },
-      { name: "Koi Carp", cat: "Pond", price: "Quote", img: "/assets/products/koi.jpg", alt: "Koi carp with orange, white and black pattern" },
-    ],
-  },
-  {
-    id: "plants",
-    title: "Plants & Aquatic Decor",
-    tone: "content--cream",
-    items: [
-      { name: "Anubias Nana", cat: "Live Plant", price: "from ₹120", img: "/assets/products/anubias.jpg", alt: "Potted Anubias nana aquarium plant" },
-      { name: "Java Fern", cat: "Live Plant", price: "from ₹100", img: "/assets/products/java-fern.jpg", alt: "Java fern attached to driftwood" },
-      { name: "Aqua Soil", cat: "Substrate", price: "from ₹600", img: "/assets/products/aqua-soil.jpg", alt: "Bag of aquascaping soil substrate" },
-      { name: "Driftwood", cat: "Hardscape", price: "from ₹250", img: "/assets/products/driftwood.jpg", alt: "Twisted aquascaping driftwood piece" },
-    ],
-  },
-  {
-    id: "care",
-    title: "Food, Accessories & Essentials",
-    tone: "content--sand",
-    warm: true,
-    items: [
-      { name: "Premium Dog Food", cat: "Nutrition", price: "from ₹450", img: "/assets/products/dog-food.jpg", alt: "Premium bag of dog food with a bowl of kibble" },
-      { name: "Filtration Systems", cat: "Equipment", price: "from ₹900", img: "/assets/products/filtration.jpg", alt: "Modern aquarium canister filter with hoses" },
-      { name: "Grooming Essentials", cat: "Grooming", price: "from ₹350", img: "/assets/products/grooming.jpg", alt: "Pet grooming kit with brushes and shampoo" },
-      { name: "Cages & Aviaries", cat: "Accessories", price: "Quote", img: "/assets/products/aviary.jpg", alt: "Handcrafted bird aviary with a green parrot" },
-    ],
-  },
+const PRODUCTS = [
+  ...BRANDED_PRODUCTS.map((item) => ({ ...item, id: `${item.brand}-${item.name}`, featured: true })),
+  ...CATALOG.flatMap((group) => group.items.map((item) => ({
+    id: `${group.id}-${item}`, name: item, group: group.id, brand: "Any brand", detail: "Ask for brands, sizes and current availability", photo: item, featured: false,
+  }))),
 ];
+const BRANDS = [...new Set(BRANDED_PRODUCTS.map((item) => item.brand))].sort();
 
-const FILTERS = [
-  ["all", "Everything"],
-  ["aquariums", "Aquariums"],
-  ["fish", "Fish"],
-  ["plants", "Plants & Hardscape"],
-  ["care", "Food & Essentials"],
-];
+function ProductImage({ item, fallback }) {
+  const sheet = PRODUCT_SHEETS[item];
+  if (sheet) return <span className="store-product-image__sheet" role="img" aria-label={`Illustrative ${item.toLowerCase()}`} style={{ backgroundImage: `url(${sheet.src})`, backgroundPosition: `${sheet.col * 100 / 3}% ${sheet.row * 100 / 3}%` }} />;
+  return <img src={PRODUCT_PHOTOS[item] || fallback} alt={`Illustrative ${item.toLowerCase()}`} loading="lazy" />;
+}
+
+function ProductCard({ product }) {
+  const group = CATALOG.find((entry) => entry.id === product.group);
+  const message = product.featured
+    ? `Hi Dad's Pets! I'm enquiring about ${product.brand} ${product.name}. Can you confirm the available model or pack size, price and a photo?`
+    : `Hi Dad's Pets! I'm looking for ${product.name.toLowerCase()}. Which brands, sizes and prices are available? Please share product photos.`;
+  return <a className="store-card" href={waLink(message)} target="_blank" rel="noopener noreferrer" aria-label={`Enquire on WhatsApp about ${product.brand === "Any brand" ? "" : `${product.brand} `}${product.name}`}>
+    <div className="store-card__image"><ProductImage item={product.photo} fallback={group.image} />{product.featured && <span className="store-card__badge">BRAND ENQUIRY</span>}</div>
+    <div className="store-card__content">
+      <span className="store-card__category">{group.eyebrow}</span>
+      <strong>{product.name}</strong>
+      <span className="store-card__brand">{product.brand === "Any brand" ? "Explore available brands" : product.brand}</span>
+      <p>{product.detail}</p>
+      <span className="store-card__action">Enquire on WhatsApp <Icon name="arrow" size={16} /></span>
+    </div>
+  </a>;
+}
 
 export default function Shop() {
-  const [filter, setFilter] = useState("all");
+  const [category, setCategory] = useState("all");
+  const [brand, setBrand] = useState("all");
+  const [query, setQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(24);
 
-  return (
-    <>
-      <ScrollProgress />
-      <Nav staticLight />
-      <main>
-        <section className="page-top has-live-bg">
-          <SceneLayers preset="shop" />
-          <Reveal className="wrap">
-            <p className="crumbs">
-              <a href="/">Home</a> / Shop
-            </p>
-            <p className="eyebrow eyebrow--gold">Our collections</p>
-            <Words className="display" text="Explore Pets & Essentials" as={motion.h1} />
-            <p className="content-lede">
-              An illustrative look at pet care, aquarium and accessory categories. Ask Dad&apos;s Pets about current stock and prices.
-            </p>
-          </Reveal>
-        </section>
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const incoming = params.get("category");
+    if (incoming && CATALOG.some((group) => group.id === incoming)) setCategory(incoming);
+    if (params.get("q")) setQuery(params.get("q"));
+  }, []);
 
-        <section className="content content--cream shop-filter-bar">
-          <div className="wrap">
-            <div className="chip-row" role="tablist" aria-label="Filter products">
-              {FILTERS.map(([id, label]) => (
-                <button
-                  key={id}
-                  role="tab"
-                  aria-selected={filter === id}
-                  className={`chip${filter === id ? " chip--on" : ""}`}
-                  onClick={() => setFilter(id)}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+  useEffect(() => { setVisibleCount(24); }, [category, brand, query]);
+
+  const results = useMemo(() => {
+    const needle = query.trim().toLowerCase();
+    return PRODUCTS.filter((product) => {
+      const group = CATALOG.find((entry) => entry.id === product.group);
+      return (category === "all" || product.group === category)
+        && (brand === "all" || product.brand === brand)
+        && (!needle || [product.name, product.brand, product.detail, group.title, group.eyebrow].some((value) => value.toLowerCase().includes(needle)));
+    });
+  }, [category, brand, query]);
+
+  return <>
+    <Nav staticLight />
+    <main id="main">
+      <section className="catalog-hero" data-nav="light">
+        <div className="catalog-hero__copy">
+          <p className="supply-kicker">DAD&apos;S PETS · SHOP THE RANGE</p>
+          <h1>One shop for <em>every pet need.</em></h1>
+          <p>Explore aquarium equipment, food, care, birds, poultry and more. Select any product to ask Dad&apos;s Pets for its current brands, variants, price and photo on WhatsApp.</p>
+          <div className="supply-actions"><a className="supply-button supply-button--dark" href="#products">Shop products <Icon name="arrow" size={18} /></a><Link className="supply-button supply-button--line" href="/wholesale">Wholesale enquiry <Icon name="arrow" size={18} /></Link></div>
+          <small>Product pictures are illustrative. Brand examples are enquiries, not a claim of current stock. Dad&apos;s Pets confirms the exact item before purchase.</small>
+        </div>
+        <div className="catalog-hero__image" role="img" aria-label="Illustrative aquarium and pet supply showroom" />
+      </section>
+
+      <section className="store" id="products" data-nav="light">
+        <div className="supply-container">
+          <div className="store-heading"><div><p className="supply-kicker">PRODUCTS & BRANDS</p><h2>Find it. Enquire. Get the right one.</h2><p>Browse product types and familiar brands. If you need a particular model or an unlisted brand, send us the name.</p></div><Link href="/custom-aquariums" className="catalog-build-link">Building an aquarium? <Icon name="arrow" size={18} /></Link></div>
+          <div className="store-controls">
+            <label className="catalog-search"><span>Search products, brands or departments</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try Fluval, fish food, poultry feed…" autoComplete="off" /></label>
+            <div className="catalog-hints"><span>Popular:</span>{SHOP_HINTS.map((hint) => <button key={hint} type="button" onClick={() => { setCategory("all"); setBrand("all"); setQuery(hint); }}>{hint}</button>)}</div>
+            <div className="catalog-filter" aria-label="Departments"><button type="button" className={category === "all" ? "is-active" : ""} aria-pressed={category === "all"} onClick={() => setCategory("all")}>All products</button>{CATALOG.map((group) => <button key={group.id} type="button" className={category === group.id ? "is-active" : ""} aria-pressed={category === group.id} onClick={() => setCategory(group.id)}>{group.title}</button>)}</div>
+            <div className="store-brand-filter"><label htmlFor="brand-filter">Brand</label><select id="brand-filter" value={brand} onChange={(event) => setBrand(event.target.value)}><option value="all">All brands & product types</option>{BRANDS.map((name) => <option key={name} value={name}>{name}</option>)}</select><span>Brand cards show examples to enquire about; stock is confirmed on WhatsApp.</span></div>
           </div>
-        </section>
-
-        {GROUPS.map((g) => {
-          if (filter !== "all" && filter !== g.id) return null;
-          return (
-            <section className={`content ${g.tone}`} id={g.id} key={g.id}>
-              <div className="wrap">
-                <Reveal>
-                  <h2 className="sec-title">{g.title}</h2>
-                </Reveal>
-                <motion.div className="cards-4" layout>
-                  <AnimatePresence mode="popLayout">
-                    {g.items.map((p, i) => (
-                      <motion.div
-                        key={p.name}
-                        layout
-                        initial={{ opacity: 0, y: 24, scale: 0.97 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.96 }}
-                        transition={{ duration: 0.35, delay: i * 0.05 }}
-                        whileHover={{ y: -6, boxShadow: "0 22px 50px rgba(42,33,24,.14)" }}
-                        className={`pcard${g.warm ? " warm" : ""}`}
-                      >
-                        <div className="banner has-img">
-                          <img src={p.img} alt={p.alt} loading="lazy" />
-                        </div>
-                        <div className="pb">
-                          <span className="cat">{p.cat}</span>
-                          <h3>{p.name}</h3>
-                          <div className="prow">
-                            <span className="price">Ask in store</span>
-                            <motion.a
-                              className="mini-btn"
-                              href={waEnquire(p.name)}
-                              target={BUSINESS.whatsappNumber ? "_blank" : undefined}
-                              rel="noopener"
-                              whileHover={{ borderColor: "#3fa65b", color: "#3fa65b" }}
-                              whileTap={{ scale: 0.96 }}
-                            >
-                              {BUSINESS.whatsappNumber ? "Enquire" : "Contact"}
-                            </motion.a>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
-                </motion.div>
-              </div>
-            </section>
-          );
-        })}
-      </main>
-      <SiteFooter />
-      <WhatsAppFloat />
-    </>
-  );
+          <div className="store-brand-rail" aria-label="Browse brands"><strong>{BRANDS.length} brands to explore</strong>{BRANDS.map((name) => <button key={name} type="button" className={brand === name ? "is-active" : ""} aria-pressed={brand === name} onClick={() => { setBrand(name); setCategory("all"); setQuery(""); }}>{name}</button>)}<button type="button" onClick={() => { setBrand("all"); setCategory("all"); setQuery(""); }}>View all</button></div>
+          <div className="store-results"><p aria-live="polite"><strong>{results.length}</strong> products and enquiries</p><span>Tap any card to enquire on WhatsApp</span></div>
+          {results.length ? <div className="store-grid">{results.slice(0, visibleCount).map((product) => <ProductCard key={product.id} product={product} />)}</div> : <div className="catalog-empty"><h3>Can&apos;t find it?</h3><p>Send us the product or brand name. We&apos;ll check the current options for you.</p><a className="supply-button supply-button--dark" href={waLink(`Hi Dad's Pets! I'm looking for ${query || brand || "a pet product"}. Can you help?`)} target="_blank" rel="noopener noreferrer">Ask on WhatsApp <Icon name="arrow" size={18} /></a></div>}
+          {visibleCount < results.length && <button className="store-load" type="button" onClick={() => setVisibleCount((count) => count + 24)}>Show more products <Icon name="arrow" size={18} /></button>}
+          <div className="store-request"><div><p className="supply-kicker">YOUR BRAND, YOUR LIST</p><h3>Looking for something specific?</h3><p>Share a brand, model, size or a photograph. We&apos;ll confirm what can be supplied.</p></div><a className="supply-button supply-button--cream" href={waLink("Hi Dad's Pets! I have a product or brand list I'd like you to check.")} target="_blank" rel="noopener noreferrer">Send your list <Icon name="arrow" size={18} /></a></div>
+        </div>
+      </section>
+      <section className="catalog-outro" data-nav="dark"><div className="supply-container catalog-outro__grid"><div><p className="supply-kicker">FOR SHOPS & SERIOUS KEEPERS</p><h2>Buying in quantity?</h2><p>Share your list, models, sizes and quantities for a wholesale enquiry.</p></div><Link className="supply-button supply-button--cream" href="/wholesale">Request a wholesale quote <Icon name="arrow" size={18} /></Link></div></section>
+    </main>
+    <SiteFooter />
+    <WhatsAppFloat />
+  </>;
 }
