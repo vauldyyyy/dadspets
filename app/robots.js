@@ -1,5 +1,7 @@
 import { BUSINESS } from "../lib/business";
 
+export const dynamic = "force-static";
+
 const BASE = BUSINESS.websiteUrl || "http://localhost:3000";
 
 export default function robots() {

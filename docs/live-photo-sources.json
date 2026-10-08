@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Shih Tzu",
+    "file": "/assets/live/shih-tzu.webp",
+    "author": "Wawri (Tomasz Wawak)",
+    "source": "https://commons.wikimedia.org/wiki/File:Shih-tzu-Fibi.jpg",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5"
+  },
+  {
+    "name": "Pomeranian",
+    "file": "/assets/live/pomeranian.webp",
+    "author": "PeCeT_full",
+    "source": "https://commons.wikimedia.org/wiki/File:Pomeranian_in_Tallinn_(52131288682).jpg",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "name": "Labrador Retriever",
+    "file": "/assets/live/labrador-retriever.webp",
+    "author": "IDS.photos from Tiverton, UK",
+    "source": "https://commons.wikimedia.org/wiki/File:Labrador_on_Quantock_(2175262184).jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "name": "Doberman Pinscher",
+    "file": "/assets/live/doberman-pinscher.webp",
+    "author": "Andreas Kollegger from Baltimore",
+    "source": "https://commons.wikimedia.org/wiki/File:Doberman_Pinscher_blue_portrait.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "name": "German Shepherd",
+    "file": "/assets/live/german-shepherd.webp",
+    "author": "Artem Asanov",
+    "source": "https://commons.wikimedia.org/wiki/File:German_Shepherd_with_ball_in_mouth.jpg",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Licensing#Public_domain"
+  },
+  {
+    "name": "Persian Cat",
+    "file": "/assets/live/persian-cat.webp",
+    "author": "Si Griffiths",
+    "source": "https://commons.wikimedia.org/wiki/File:Persian_Cat_5_UK_(2004_photo;_cropped_2022).jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "name": "Himalayan Cat",
+    "file": "/assets/live/himalayan-cat.webp",
+    "author": "Blenheimears",
+    "source": "https://commons.wikimedia.org/wiki/File:Seal_point_himalayan_cat.jpg",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "name": "Silver Arowana",
+    "file": "/assets/live/arowana.webp",
+    "author": "ShajiA",
+    "source": "https://commons.wikimedia.org/wiki/File:Osteoglossum_bicirrhosum_NEAQ.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "name": "Flowerhorn Cichlid",
+    "file": "/assets/live/flowerhorn.webp",
+    "author": "Lerdsuwa",
+    "source": "https://commons.wikimedia.org/wiki/File:Flowerhorn.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "name": "Oscar Cichlid",
+    "file": "/assets/live/oscar-cichlid.webp",
+    "author": "Petruss",
+    "source": "https://commons.wikimedia.org/wiki/File:Oscar_(Astronotus_ocellatus).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "name": "Electric Blue Acara",
+    "file": "/assets/live/electric-blue-acara.webp",
+    "author": "Shamekh.yasser",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Electric_Blue_Acara_(Andinoacara_pulcher,_electric_blue_morph).jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  {
+    "name": "Clown Loach",
+    "file": "/assets/live/clown-loach.webp",
+    "author": "Andrej Jakubík",
+    "source": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus_(Bleeker,_1852)_Clown_loach.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "name": "Black Ghost Knifefish",
+    "file": "/assets/live/black-ghost-knifefish.webp",
+    "author": "Vassil",
+    "source": "https://commons.wikimedia.org/wiki/File:Apteronotus_albifrons_Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_10_04_2016_1.jpg",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  }
+]
