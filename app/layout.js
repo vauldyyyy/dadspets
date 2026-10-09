@@ -11,17 +11,17 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], 
 const script = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-script", display: "swap" });
 
 const siteUrl = BUSINESS.websiteUrl || "http://localhost:3000";
-const description = "Explore pets, food, accessories and care inspiration at Dad's Pets near Madgaon, Goa.";
+const description = "Visit Dad's Pets in Shirvodem, Margao (Madgaon), Goa for pets, aquarium supplies, pet food and accessories. Browse the shop and enquire on WhatsApp.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Dad's Pets | Pet Shop near Madgaon, Goa", template: "%s | Dad's Pets" },
+  title: { default: "Dad's Pets | Pet Shop & Aquarium Supplies in Margao, Goa", template: "%s | Dad's Pets" },
   description,
-  keywords: ["Dad's Pets", "pet shop Madgaon", "pet shop Shirvodem", "pets Goa", "pet supplies Goa"],
+  keywords: ["Dad's Pets", "pet shop Margao", "pet shop Madgaon", "pet shop Shirvodem", "aquarium supplies Goa", "pet supplies Goa"],
   alternates: BUSINESS.websiteUrl ? { canonical: "/" } : undefined,
   openGraph: {
     siteName: BUSINESS.name,
-    title: "Dad's Pets | Pet Shop near Madgaon, Goa",
+    title: "Dad's Pets | Pet Shop & Aquarium Supplies in Margao, Goa",
     description,
     type: "website",
     locale: "en_IN",
@@ -38,7 +38,7 @@ const jsonLd = BUSINESS.searchIndexingEnabled && BUSINESS.websiteUrl ? {
   url: BUSINESS.websiteUrl,
   description,
   ...(BUSINESS.phoneE164 ? { telephone: BUSINESS.phoneE164 } : {}),
-  ...(BUSINESS.address ? { address: { "@type": "PostalAddress", streetAddress: BUSINESS.address, addressRegion: "Goa", addressCountry: "IN" } } : {}),
+  ...(BUSINESS.address ? { address: { "@type": "PostalAddress", streetAddress: "Sanscar Society, Shirvodem", addressLocality: "Margao", addressRegion: "Goa", postalCode: "403601", addressCountry: "IN" } } : {}),
   sameAs: [BUSINESS.instagram, BUSINESS.facebook].filter(Boolean),
 } : null;
 
