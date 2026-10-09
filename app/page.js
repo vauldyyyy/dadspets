@@ -361,7 +361,7 @@ export default function Home() {
               {[
                 ["For every kind of pet", "Explore ideas for dogs, cats, birds, fish and small companions."],
                 ["For every daily routine", "From food and play to comfort and care, find a place to start."],
-                ["Here in Goa", "Visit Dad's Pets in the Madgaon area and see the shop for yourself."],
+                ["Here in Goa", "Visit Dad's Pets in Shirvodem, Margao (Madgaon), and see the shop for yourself."],
               ].map(([h, p], i) => (
                 <Reveal className="feat" key={h} delay={i * 0.1}>
                   <h4>{h}</h4>

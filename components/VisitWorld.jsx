@@ -209,11 +209,11 @@ export default function VisitWorld() {
                   <Icon name="pin" size={22} />
                   Our Location
                 </span>
-                <span className="vw-loc-sub">Find us near Madgaon, Goa</span>
+                <span className="vw-loc-sub">Find us in Shirvodem, Margao, Goa</span>
               </header>
               <div className="vw-map">
                 <iframe
-                  title="Map: Dad's Pets, Madgaon, Goa"
+                  title="Map: Dad's Pets, Shirvodem, Margao, Goa"
                   src={mapEmbedUrl}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

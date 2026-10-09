@@ -63,7 +63,7 @@ export default function Contact() {
             <p className="eyebrow eyebrow--gold">Get in touch</p>
             <Words className="display" text="Visit Dad's Pets" as={motion.h1} />
             <p className="content-lede">
-              Explore pets and everyday essentials near Madgaon, Goa. Call us or send a WhatsApp message and we&apos;ll help you find what you need.
+              Explore pets and everyday essentials in Shirvodem, Margao (Madgaon), Goa. Call us or send a WhatsApp message and we&apos;ll help you find what you need.
             </p>
             <div className="contact-quick">
               <a className="btn btn--grad" href={telHref}>Call {BUSINESS.phoneDisplay}</a>
